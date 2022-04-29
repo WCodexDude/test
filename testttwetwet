@@ -1,0 +1,66 @@
+local Notify = Instance.new("ScreenGui")
+local Main = Instance.new("Frame")
+local NotifyTitle = Instance.new("TextLabel")
+local Color = Instance.new("Frame")
+local NotifyText = Instance.new("TextLabel")
+local Move = Instance.new("Frame")
+Notify.Name = "Notify"
+Notify.Parent = game.CoreGui
+Notify.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+Notify.ResetOnSpawn = false
+Main.Name = "Main"
+Main.Parent = Notify
+Main.BackgroundColor3 = Color3.fromRGB(22, 22, 22)
+Main.BorderSizePixel = 0
+Main.Position = UDim2.new(0.697199106, 0, 0.889135242, 0)
+Main.Size = UDim2.new(0, 394, 0, 86)
+NotifyTitle.Name = "NotifyTitle"
+NotifyTitle.Parent = Main
+NotifyTitle.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+NotifyTitle.BackgroundTransparency = 1.000
+NotifyTitle.Size = UDim2.new(0, 394, 0, 43)
+NotifyTitle.Font = Enum.Font.Gotham
+NotifyTitle.Text = "Notification"
+NotifyTitle.TextColor3 = Color3.fromRGB(255, 255, 255)
+NotifyTitle.TextSize = 25.000
+Color.Name = "Color"
+Color.Parent = NotifyTitle
+Color.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Color.BorderColor3 = Color3.fromRGB(255, 255, 255)
+Color.BorderSizePixel = 0
+Color.Position = UDim2.new(0.327461988, 0, 0.85566324, 0)
+Color.Size = UDim2.new(0, 136, 0, 1)
+NotifyText.Name = "NotifyText"
+NotifyText.Parent = Main
+NotifyText.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+NotifyText.BackgroundTransparency = 1.000
+NotifyText.Position = UDim2.new(0.00253807101, 0, 0.42783162, 0)
+NotifyText.Size = UDim2.new(0, 394, 0, 47)
+NotifyText.Font = Enum.Font.SourceSansLight
+NotifyText.Text = "Reason"
+NotifyText.TextColor3 = Color3.fromRGB(255, 255, 255)
+NotifyText.TextSize = 35.000
+Move.Name = "Move"
+Move.Parent = Main
+Move.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Move.BorderSizePixel = 0
+Move.Position = UDim2.new(0, 0, 0.976744175, 0)
+Move.Size = UDim2.new(0, 0, 0, 2)
+local function BASCUYN_fake_script() -- Move.Move 
+	local script = Instance.new('Script', Move)
+
+	local prog = 0
+	
+	while wait() do
+		prog = prog + 1
+		script.Parent.Size = UDim2.new(prog/100, 0, 0.02, 0)
+		if prog == 100 then
+			wait(0.5)
+			script.Parent.Parent.Parent.Parent.Notify:Destroy()
+		end
+	end
+end
+coroutine.wrap(BASCUYN_fake_script)()
+
+Ttl = NotifyTitle
+Txt = NotifyText
